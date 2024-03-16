@@ -1,5 +1,6 @@
 package ru.HW1;
 
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -8,7 +9,11 @@ import java.io.Serializable;
 
 
 public class Person implements Serializable {
-    private String firstName, lastName;
+    @SerializedName("firstName")
+    private String firstName;
+    @SerializedName("lastName")
+    private String lastName;
+//    @SerializedName("age")
     private int age;
 
 
@@ -18,7 +23,11 @@ public class Person implements Serializable {
         this.age = age;
     }
 
+    public Person() {
 
+    }
+
+    // region Задание 1
     @Override
     public String toString(){
         return new ToStringBuilder(this)
@@ -51,5 +60,5 @@ public class Person implements Serializable {
                 .append(age)
                 .toHashCode();
     }
-
+    // endregion
 }
