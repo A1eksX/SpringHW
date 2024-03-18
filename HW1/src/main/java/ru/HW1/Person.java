@@ -13,7 +13,7 @@ public class Person implements Serializable {
     private String firstName;
     @SerializedName("lastName")
     private String lastName;
-//    @SerializedName("age")
+    @SerializedName("age")
     private int age;
 
 
