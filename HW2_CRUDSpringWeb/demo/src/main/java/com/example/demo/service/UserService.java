@@ -17,6 +17,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+
     public List<User> findAll(){
         return userRepository.findAll();
     }
@@ -28,4 +29,16 @@ public class UserService {
     public void deleteById(int id){
         userRepository.deleteById(id);
     }
+
+
+
+
+//        public User getUserById (Integer id){
+//        return userRepository.findUserById(id);
+//    }
+//
+//
+//    public void updateUser(User user){
+//        userRepository.update(user);
+//    }
 }
