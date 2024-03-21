@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+</head>
+<body>
+    <h1>Cars</h1>
+    <h1>View cars</h1>
+
+    <table>
+        <tr>
+            <th>MODEL</th>
+            <th>PRICE</th>
+            <th>AGE</th>
+        </tr>
+        <tr th:each="auto:${cars}">
+            <td th:text="${auto.model}"></td>
+            <td th:text="${auto.price}"></td>
+            <td th:text="${auto.age}"></td>
+        </tr>
+    </table>
+
+    <h2>add car</h2>
+    <form action="/cars" method="post">
+        Model: <input type="text" name="model"><br />
+        Price: <input type="number" step="any" name="price"><br />
+        Age: <input type="number" name="age"><br />
+        <button type="submit">add auto</button>
+    </form>
+</body>
+</html>

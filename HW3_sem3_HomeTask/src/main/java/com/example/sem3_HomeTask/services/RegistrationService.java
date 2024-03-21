@@ -9,8 +9,15 @@ public class RegistrationService {
 //    @Autowired
     private UserService userService;
 //    @Autowired
+
+    /**
+     *
+     */
     private DataProcessingService dataProcessingService;
 //    @Autowired
+    /**
+     * Поле сервиса консольных уведомлений
+     */
     private NotificationService notificationService;
 
     public RegistrationService(UserService userService, DataProcessingService dataProcessingService, NotificationService notificationService) {
@@ -19,11 +26,23 @@ public class RegistrationService {
         this.notificationService = notificationService;
     }
     // д/з
+
+    /**
+     * Сохранение пользователя в БД
+     * @param name имя пользователя
+     * @param age возраст пользователя
+     * @param email email пользователя
+     */
     public void processRegistration(String name, int age, String email){
         User user = userService.createUser(name, age, email);
         dataProcessingService.addUserToList(user);
         notificationService.notifyUser(user);
     }
+
+    /**
+     * Получение сервиса работы с хранилищем пользователей
+     * @return
+     */
 
     public DataProcessingService getDataProcessingService() {
         return dataProcessingService;
