@@ -4,7 +4,6 @@ import com.HW.HW5v1.TaskStatus;
 import com.HW.HW5v1.model.Task;
 import com.HW.HW5v1.services.TaskService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,9 +12,8 @@ import java.util.List;
 @RequestMapping("/")
 @AllArgsConstructor
 public class TaskController {
-//   @Autowired
-    private TaskService service;
 
+    private TaskService service;
 
 
     @PostMapping
@@ -29,7 +27,7 @@ public class TaskController {
     }
 
     @GetMapping("/status/{status}")
-    public List<Task> getTasksByStatus(@PathVariable("status") TaskStatus status){      // TaskStatus
+    public List<Task> getTasksByStatus(@PathVariable("status") TaskStatus status){
         return service.findTaskByStatus(status);
     }
 
@@ -37,7 +35,7 @@ public class TaskController {
     public Task updateTaskStatus(@PathVariable Long id, @RequestBody Task task){
         return service.updateTaskStatus(id, task);
     }
-    //  ------------------------------------------
+
     @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable Long id){
         service.deleteTask(id);

@@ -5,6 +5,8 @@ import com.HW.HW5v1.TaskStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 
 @Data
 @Table(name = "tasks")
@@ -16,10 +18,12 @@ public class Task {
 
     @Column(nullable = false)
     private String description;
-    //  --------------------------------------
+
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private TaskStatus status;
 
+    @Column(nullable = false)
+    private String dateTime;    // LocalDateTime
 
 }
