@@ -21,7 +21,7 @@ public class TaskService {
 
 
     public Task addTask(Task task){
-        DateTimeFormatter CUSTOM_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy ");
+        DateTimeFormatter CUSTOM_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
         LocalDateTime localDateTime = LocalDateTime.now();
         String time = localDateTime.format(CUSTOM_FORMATTER);
         task.setDateTime(time);
