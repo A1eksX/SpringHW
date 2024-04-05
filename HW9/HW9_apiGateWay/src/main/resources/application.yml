@@ -14,3 +14,12 @@ spring:
       discovery:
         locator:
           lower-case-service-id: true
+
+# надо убрать всё что ниже gateway и поставить то, что ниже
+#    discovery:
+#      locator:
+#        enabled: true
+#        lower-case-service-id: true
+
+# Eurica нужна чтобы маршрутизировать какие сервисы работают и gateway может получать эту инфу от Eurica,
+# при этом сам gateway не должен регистрироваться на Eurica.
