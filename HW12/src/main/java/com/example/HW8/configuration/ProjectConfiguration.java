@@ -1,0 +1,17 @@
+package com.example.HW8.configuration;
+
+import com.example.HW8.aspects.LoggingAspect;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
+@Configuration
+@ComponentScan(basePackages = "com.example.HW8")
+@EnableAspectJAutoProxy
+public class ProjectConfiguration {
+    @Bean
+    public LoggingAspect aspect() {
+        return new LoggingAspect();
+    }
+}
