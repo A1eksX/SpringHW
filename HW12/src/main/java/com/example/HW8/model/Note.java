@@ -1,9 +1,9 @@
 package com.example.HW8.model;
 
-import com.example.HW8.services.NoteService;
+
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
+
 
 @Data
 @Entity

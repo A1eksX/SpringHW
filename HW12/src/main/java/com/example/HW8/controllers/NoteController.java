@@ -7,6 +7,10 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +25,7 @@ public class NoteController {
     private final Gateway gateway;
 
 
-
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/news")
     public ResponseEntity<Note> addNote(@RequestBody Note note){
         note.setDateTime(service.getTime());
@@ -33,6 +37,7 @@ public class NoteController {
     public ResponseEntity<Note> createNote(@RequestBody Note note){
         return new ResponseEntity<>(service.createNote(note), HttpStatus.CREATED);
     }
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @GetMapping
     public ResponseEntity<List<Note>> findAllNotes(){
         return new ResponseEntity<>(service.getAllNotes(), HttpStatus.OK);
